@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@author.io/arg": "^1.3.23",
+    "node-windows": "^1.0.0-beta.6"
+  }
+}

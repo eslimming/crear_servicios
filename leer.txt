@@ -1,0 +1,74 @@
+Llamar app node desde un servicio:
+https://www.npmjs.com/package/node-windows/v/1.0.0-beta.6
+
+
+Pasos:
+
+1) Instalar libreria node-windows (debe ser la beta6 ya que la beta7 tiene un problema con una referencia):
+npm i node-windows@1.0.0-beta.6
+
+2) en la misma carpeta debe estar nuestra "app.js" que queremos levantar como servicio creamos un js para crear el servicio y otro para eliminarlo:
+
+//************************************************************************************
+//***************************** servicio_crear.js ************************************
+//************************************************************************************
+var Service = require('node-windows').Service;
+
+// Create a new service object
+var svc = new Service({
+  name: '001 - Nombre del Servicio',
+  description: 'The nodejs.org example web server.',
+  script: 'C:\\Mis_Carpetas\\Apps-Node\\crear_servicios\\app.js',
+  nodeOptions: [
+    '--harmony',
+    '--max_old_space_size=4096'
+  ]
+  //, workingDirectory: '...'
+  //, allowServiceLogon: true
+});
+
+// Listen for the "install" event, which indicates the
+// process is available as a service.
+svc.on('install', function () {
+  svc.start();
+});
+
+svc.install();
+
+//************************************************************************************
+//************************************************************************************
+//************************************************************************************
+
+
+
+
+//************************************************************************************
+//*************************** servicio_eliminar.js ***********************************
+//************************************************************************************
+
+var Service = require('node-windows').Service;
+
+// Create a new service object
+var svc = new Service({
+  name: '001 - Nombre del Servicio',
+  script: require('path').join(__dirname, 'ap.js')
+});
+
+// Listen for the "uninstall" event so we know when it's done.
+svc.on('uninstall', function () {
+  console.log('Uninstall complete.');
+  console.log('The service exists: ', svc.exists);
+});
+
+// Uninstall the service.
+svc.uninstall();
+
+//************************************************************************************
+//************************************************************************************
+//************************************************************************************
+
+
+
+4) llamar al crear o eliminar servicio segun corresponda:
+node servicio_crear.js
+node servicio_eliminar.js

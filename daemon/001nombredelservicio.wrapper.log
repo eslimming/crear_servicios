@@ -1,0 +1,4 @@
+2022-05-18 18:00:24 - Starting C:\Program Files\nodejs\node.exe  --harmony --max_old_space_size=4096 C:\Mis_Carpetas\Apps-Node\crear_servicios\node_modules\node-windows\lib\wrapper.js --file C:\Mis_Carpetas\Apps-Node\crear_servicios\app.js --scriptoptions= --log "001 - Nombre del Servicio wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2022-05-18 18:00:24 - Started 27160
+2022-05-18 18:00:34 - Starting C:\Program Files\nodejs\node.exe  --harmony --max_old_space_size=4096 C:\Mis_Carpetas\Apps-Node\crear_servicios\node_modules\node-windows\lib\wrapper.js --file C:\Mis_Carpetas\Apps-Node\crear_servicios\app.js --scriptoptions= --log "001 - Nombre del Servicio wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2022-05-18 18:00:34 - Started 26876
